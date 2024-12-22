@@ -1,9 +1,8 @@
 const pool = require('../../database/postgres/pool');
 const UsersTableTestHelper = require('../../../../tests/UsersTableTestHelper');
 const AuthenticationsTableTestHelper = require('../../../../tests/AuthenticationsTableTestHelper');
-const container = require('../../container');
+// const injections = require('../../');
 const createServer = require('../createServer');
-const AuthenticationTokenManager = require('../../../Applications/security/AuthenticationTokenManager');
 
 describe('HTTP server', () => {
     afterAll(async () => {
@@ -44,6 +43,7 @@ describe('HTTP server', () => {
             expect(responseJson.value).toEqual('Hello world!');
         });
     });
+
 
     describe('when POST /users', () => {
         it('should response 201 and persisted user', async () => {
